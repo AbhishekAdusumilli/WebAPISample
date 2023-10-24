@@ -7,6 +7,9 @@
         formControlName="ean"
         (input)="formatEAN($event)"
       />
+        <div *ngIf="isEANInvalid()" class="error-message">
+      EAN is invalid.
+    </div>
     </div>
   
     <div class="form-group">
@@ -17,6 +20,9 @@
         formControlName="fein"
         (input)="formatFEIN($event)"
       />
+         <div *ngIf="isFEINInvalid()" class="error-message">
+      FEIN is invalid.
+    </div>
     </div>
   {{form.get('ean')?.value}}
   {{form.get('fein')?.value}}
