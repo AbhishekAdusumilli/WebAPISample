@@ -15,6 +15,19 @@ export class ValidationComponent {
     });
   }
 
+   // Your validation functions here...
+
+  // Add functions to check if a form control is invalid
+  isEANInvalid() {
+    const eanControl = this.form.get('ean');
+    return eanControl.invalid && (eanControl.dirty || eanControl.touched);
+  }
+
+  isFEINInvalid() {
+    const feinControl = this.form.get('fein');
+    return feinControl.invalid && (feinControl.dirty || feinControl.touched);
+  }
+
   validateEAN(control:any) {
     if (!/^\d{2}-\d{6}-\d{2}$/.test(control.value)) {
       return { invalidEAN: true };
