@@ -1,0 +1,25 @@
+<form [formGroup]="form">
+    <div class="form-group">
+      <label for="ean">EAN (European Article Number):</label>
+      <input
+        type="text"
+        id="ean"
+        formControlName="ean"
+        (input)="formatEAN($event)"
+      />
+    </div>
+  
+    <div class="form-group">
+      <label for="fein">FEIN (Federal Employer Identification Number):</label>
+      <input
+        type="text"
+        id="fein"
+        formControlName="fein"
+        (input)="formatFEIN($event)"
+      />
+    </div>
+  {{form.get('ean')?.value}}
+  {{form.get('fein')?.value}}
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+  
